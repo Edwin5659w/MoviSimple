@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Solicitar viaje</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trip Request</title>
-  <link rel="stylesheet" href="Styles/All.css" />
+  <link rel="stylesheet" href="Styles/style.css">
 </head>
 <body>
   <!-- Video de fondo y blur -->
@@ -13,41 +13,24 @@
     Tu navegador no soporta el video.
   </video>
   <div class="blur-bg"></div>
-  <div class="container-mockup">
-    <h1>Trip Request</h1>
+  <div class="container login-box">
+    <h1>Solicitar viaje</h1>
     <div id="mapContainer">
-      <svg width="260" height="140" id="mapSVG">
-        <!-- Aristas (9) -->
-        <line x1="40" y1="30" x2="220" y2="30" stroke="#232526" stroke-width="2"/>
-        <line x1="40" y1="30" x2="130" y2="70" stroke="#232526" stroke-width="2"/>
-        <line x1="220" y1="30" x2="255" y2="95" stroke="#232526" stroke-width="2"/>
-        <line x1="40" y1="30" x2="40" y2="120" stroke="#232526" stroke-width="2"/>
-        <line x1="40" y1="120" x2="220" y2="120" stroke="#232526" stroke-width="2"/>
-        <line x1="220" y1="120" x2="255" y2="95" stroke="#232526" stroke-width="2"/>
-        <line x1="130" y1="70" x2="255" y2="95" stroke="#232526" stroke-width="2"/>
-        <line x1="130" y1="70" x2="220" y2="120" stroke="#232526" stroke-width="2"/>
-        <line x1="130" y1="70" x2="40" y2="120" stroke="#232526" stroke-width="2"/>
-        <!-- Nodos -->
-        <circle id="nodeA" cx="40" cy="30" r="10" fill="#fff" stroke="#232526" stroke-width="2"/>
-        <circle id="nodeB" cx="220" cy="30" r="10" fill="#fff" stroke="#232526" stroke-width="2"/>
-        <circle id="nodeC" cx="130" cy="70" r="10" fill="#fff" stroke="#232526" stroke-width="2"/>
-        <circle id="nodeD" cx="40" cy="120" r="10" fill="#fff" stroke="#232526" stroke-width="2"/>
-        <circle id="nodeE" cx="220" cy="120" r="10" fill="#fff" stroke="#232526" stroke-width="2"/>
-        <circle id="nodeF" cx="255" cy="95" r="10" fill="#fff" stroke="#232526" stroke-width="2"/>
-        <!-- Letras -->
-        <text x="32" y="27" font-size="13" fill="#232526" font-weight="bold">A</text>
-        <text x="212" y="27" font-size="13" fill="#232526" font-weight="bold">B</text>
-        <text x="120" y="65" font-size="13" fill="#232526" font-weight="bold">C</text>
-        <text x="32" y="135" font-size="13" fill="#232526" font-weight="bold">D</text>
-        <text x="212" y="135" font-size="13" fill="#232526" font-weight="bold">E</text>
-        <text x="258" y="110" font-size="13" fill="#232526" font-weight="bold">F</text>
-        <!-- Movil -->
-        <circle id="movil" cx="40" cy="30" r="7" fill="#232526" style="display:none;" />
-      </svg>
+      <!-- NODOS -->
+      <div class="node" id="nodeA" style="top: 20px; left: 80px;">A</div>
+      <div class="node" id="nodeB" style="top: 20px; left: 180px;">B</div>
+      <div class="node" id="nodeC" style="top: 70px; left: 40px;">C</div>
+      <div class="node" id="nodeD" style="top: 70px; left: 130px;">D</div>
+      <div class="node" id="nodeE" style="top: 70px; left: 220px;">E</div>
+      <div class="node" id="nodeF" style="top: 120px; left: 130px;">F</div>
+      <!-- Bola azul del recorrido -->
+      <div id="movil"></div>
+      <!-- Aquí puedes agregar las aristas con líneas absolutas si quieres visualmente -->
     </div>
     <form id="requestTripForm" autocomplete="off">
-      <select id="startNode" name="startNode" required>
-        <option value="">Origin</option>
+      <label for="startNode">Origen:</label>
+      <select id="startNode" required>
+        <option value="">Selecciona origen</option>
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
@@ -55,8 +38,9 @@
         <option value="E">E</option>
         <option value="F">F</option>
       </select>
-      <select id="endNode" name="endNode" required>
-        <option value="">Destination</option>
+      <label for="endNode">Destino:</label>
+      <select id="endNode" required>
+        <option value="">Selecciona destino</option>
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
@@ -64,14 +48,13 @@
         <option value="E">E</option>
         <option value="F">F</option>
       </select>
-      <button type="submit">Calculate Route</button>
+      <button type="submit">Solicitar viaje</button>
       <div id="progressBar">
         <div id="progressFill"></div>
       </div>
     </form>
     <p id="tripMessage"></p>
     <p id="costMessage"></p>
-    <div class="interface-label">Trip request interface</div>
   </div>
   <script src="Scripts/interfaz.js"></script>
 </body>
