@@ -1,1 +1,3 @@
 {"nombre":"Solanyi Alejandra","email":"sol@gmail.com","password":"Sol5659w."}
+{"nombre":"Edwin Molina","email":"edwinmolina154@gmail.com","password":"Edwin5659w."}
+{"nombre":"Sebas Ceballos","email":"sebas@gmail.com","password":"Sebas5659w."}
